@@ -18,30 +18,35 @@ module.exports = (sequelize) => {
     },
     hp: {
       type: DataTypes.INTEGER,
-      default: 50,
+      defaultValue: 50,
     },
     attack: {
       type: DataTypes.INTEGER,
-      default: 50,
+      defaultValue: 50,
     },
     defense: {
       type: DataTypes.INTEGER,
-      default: 50,
+      defaultValue: 50,
     },
     speed: {
       type: DataTypes.INTEGER,
-      default: 50,
+      defaultValue: 50,
     },
     height: {
       type: DataTypes.INTEGER,
-      default: 5,
+      defaultValue: 5,
     },
     weight: {
       type: DataTypes.INTEGER,
-      default: 50,
+      defaultValue: 50,
     },
     imgUrl: {
       type: DataTypes.STRING,
+    },
+    createInDb: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: true,
     },
   });
 };
