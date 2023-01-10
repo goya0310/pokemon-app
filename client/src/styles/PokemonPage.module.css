@@ -1,0 +1,124 @@
+.background {
+  background: url("../images/PokemonPage\ background.png") fixed no-repeat, radial-gradient(#D7ECF9,#88C8EE);
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.header {
+  grid-area: header;
+}
+.image {
+  grid-area: image;
+}
+.info {
+  grid-area: info;
+}
+
+.gif {
+  grid-area: gif;
+}
+
+.pageGlobal {
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  background: radial-gradient(#f89a9e, #ed1c24) center;
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "image image image"
+    "image image image"
+    "info info info";
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 0.5rem;
+  border-color: #060000e6;
+  gap: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.image {
+  width: 40vw;
+  margin-bottom: 2.5vh;
+  margin-left: 2.5vw;
+  margin-right: 2.5vw;
+  background: radial-gradient(white, rgb(220, 220, 220)) center;
+  background-size: contain;
+  border-style: solid;
+  border-radius: 0.25rem;
+  border-color: rgba(0, 0, 0, 0.7);
+  border-width: 1px;
+  padding-bottom: 10vh;
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-left: 2.5vw;
+  margin-right: 2.5vw;
+  margin-bottom: 5vh;
+  background-color: #30a7d7;
+  border-style: solid;
+  border-radius: 0.25rem;
+  border-color: rgba(0, 0, 0, 0.7);
+  border-width: 1px;
+  padding-left: 1vw;
+  text-decoration: none;
+  color: white;
+  font-size: x-large;
+  font-weight: 700;
+  text-shadow: 2px 0px rgb(0, 0, 0);
+}
+
+.infoblack {
+  text-decoration: none;
+  color: rgb(50, 50, 50);
+  font-size: x-large;
+  font-weight: 700;
+  text-shadow: none;
+}
+
+.typesBox {
+  background: radial-gradient(#FFF3A2,#ffde00);
+  margin-right: .75vw;
+  padding: 0.5vh;
+  padding-left: .75vw;
+  padding-right: .75vw;
+  color: rgb(50, 50, 50);
+  text-decoration: none;
+  font-size: x-large;
+  font-weight: 700;
+  border-style: solid;
+  border-radius: 0.25rem;
+  border-color: rgba(0, 0, 0, 0.7);
+  border-width: 1px;
+  text-shadow: none;
+}
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30vw;
+  height: 3vw;
+  background-color: #729f2d;
+  padding-bottom: 1vh;
+  padding-top: 1vh;
+  border-style: solid;
+  border-radius: 0.25rem;
+  border-color: rgba(0, 0, 0, 0.7);
+  border-width: 1px;
+  margin-left: 8vw;
+  margin-bottom: 2.5vh;
+  margin-top: 2.5vh;
+}
+
+.header > h2 {
+  text-decoration: none;
+  color: white;
+  font-size: x-large;
+  font-weight: 700;
+  text-shadow: 2px 0px rgb(0, 0, 0);
+}

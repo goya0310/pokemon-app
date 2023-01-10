@@ -1,0 +1,37 @@
+.paginationGlobal {
+  display: flex;
+  justify-content: center;
+}
+
+.ulGlobal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0px;
+  padding-left: 0px;
+}
+.ulGlobal li {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3vw;
+  height: 3vh;
+  background-color: #729f2d;
+  border: none;
+  color: white;
+  margin-right: .25vw;
+  padding-top: .5vh;
+  padding-bottom: .5vh;
+  border-radius: 0.25rem;
+  transition-duration: 0.4s;
+}
+
+.button:hover {
+  background-color: #557821;
+  color: #ffde00;
+}

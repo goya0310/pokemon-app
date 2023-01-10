@@ -1,0 +1,19 @@
+.background {
+  display: flex;
+  justify-content: center;
+  background: radial-gradient(#f5fedc, #e6fda2) center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.image {
+  background-image: url("../images/LandingPokemon.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 70vw;
+}
+
+.image:hover {
+  transform: scale(1.05);
+}

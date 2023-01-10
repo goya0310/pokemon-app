@@ -2,13 +2,14 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getPokemonById } from "../actions";
+import styles from "../styles/PokemonPage.module.css";
 
 export const PokemonPage = () => {
   let pokemon = useSelector((state) => state.pokemon);
   let { id } = useParams();
   let dispatch = useDispatch();
 
-  const { name, types, imgUrl, hp, attack, defense, speed, height, weight } =
+  let { name, types, imgUrl, hp, attack, defense, speed, height, weight  } =
     pokemon;
 
   useEffect(() => {
@@ -16,22 +17,31 @@ export const PokemonPage = () => {
   }, [dispatch, id]);
 
   return (
-    <div>
-      <p>{id}</p>
-      <h2>{name}</h2>
-      <div>
-        <span>Types: </span>
-        {types?.map((type, i) => {
-          return <span key={i}>{type} </span>;
-        })}
+    <div className={styles.background}>
+      <div className={styles.pageGlobal}>
+        <div className={styles.header}>
+          <h2>{name}</h2>
+        </div>
+        <img className={styles.image} src={imgUrl} alt="Pokemon" />
+        <div className={styles.info}>
+          <div>
+            <p>Types: </p>
+            {types?.map((type, i) => {
+              return <span className={styles.typesBox} key={i}>{type} </span>;
+            })}
+            <p>height: <span className={styles.infoblack}>{height} mts.</span></p>
+            <p>weight: <span className={styles.infoblack}>{weight} kgs.</span></p>
+          </div>
+          <div>
+            <p>
+              hp: <span className={styles.infoblack}>{hp}</span>
+            </p>
+            <p>attack: <span className={styles.infoblack}>{attack}</span></p>
+            <p>defense: <span className={styles.infoblack}>{defense}</span></p>
+            <p>speed: <span className={styles.infoblack}>{speed}</span></p>
+          </div>
+        </div>
       </div>
-      <p>hp: {hp}</p>
-      <p>attack: {attack}</p>
-      <p>defense: {defense}</p>
-      <p>speed: {speed}</p>
-      <p>heigth: {height}</p>
-      <p>weigth: {weight}</p>
-      <img src={imgUrl} alt="Pokemon" />
     </div>
   );
 };

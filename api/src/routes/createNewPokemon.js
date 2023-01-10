@@ -31,8 +31,10 @@ async function createNewPokemon(req, res) {
       where: { name: typesMin },
     });
 
+    const typeId = typesDB?.map((t) => t.dataValues.id)
+
     // mixin para agregar los types al pokemon creado
-    await pokemonCreate.addType(typesDB);
+    await pokemonCreate.addType(typeId);
 
     // traigo de la base de datos los datos completos del pokemon creado
     const newPokemon = await Pokemon.findOne({

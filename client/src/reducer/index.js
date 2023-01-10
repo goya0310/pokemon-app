@@ -1,7 +1,7 @@
 const initialState = {
   pokemons: [], // con datos solo que se van a filtrar
   pokemon: {}, // detalle de un pokemon
-  allPokemons: [], // todos los pokemons
+  allPokemons:[],
   filterPokemons: [],
   types: [],
 };
@@ -22,8 +22,8 @@ export default function rootReducer(state = initialState, action) {
       return {
         ...state,
         pokemons: action.payload,
-        allPokemons: action.payload,
         filterPokemons: action.payload,
+        allPokemons: action.payload,
       };
     case "SEARCH_POKEMON":
       return {

@@ -1,0 +1,29 @@
+.searchBox {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 0.25rem;
+}
+
+.input {
+  padding: 2px;
+  border-radius: 0.25rem;
+  border-width: 1px;
+  padding: 3.5px;
+  margin-right: 1px;
+  font-size: large;
+}
+
+.button {
+  border-radius: 0.25rem;
+  border-width: 1px;
+  background-color: #729f2d;
+  padding: 3.5px;
+  color: white;
+  border-color: red;
+  font-size: large;
+}
+
+.button:hover {
+  background-color: #557821;
+  color: #ffde00;
+}

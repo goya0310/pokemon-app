@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { searchPokemon } from "../actions";
+import styles from "../styles/Search.module.css"
 
 const Search = () => {
   const [input, setInput] = useState("");
@@ -18,15 +19,15 @@ const Search = () => {
   };
 
   return (
-    <div>
-      <input
+    <div className={styles.searchBox}>
+      <input className={styles.input}
         type="text"
         placeholder="buscar por nombre"
         autoComplete="off"
         onChange={(e) => handleChange(e)}
       />
-      <button type="submit" onClick={(e) => searchByName(e)}>
-        go
+      <button className={styles.button} type="submit" onClick={(e) => searchByName(e)}>
+        GO
       </button>
     </div>
   );

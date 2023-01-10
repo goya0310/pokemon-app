@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   getPokemons,
   getTypes,
@@ -9,10 +9,15 @@ import {
   orderPokemonByAttack,
 } from "../actions";
 import NavHome from "./NavHome";
+import Pagination, { pokemonIndex } from "./Pagination";
 import PokemonCard from "./PokemonCard";
+import styles from "../styles/Home.module.css"
 
 const Home = () => {
   const [input, setInput] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const pokemons = useSelector((state) => state.pokemons);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -23,25 +28,35 @@ const Home = () => {
   const handleOrderByName = (sortType) => {
     dispatch(orderPokemonsByName(sortType));
     setInput(sortType);
+    setCurrentPage(1);
   };
 
   const handleGetByType = (type) => {
     dispatch(getPokemonByType(type));
     setInput(type);
+    setCurrentPage(1);
   };
 
   const handleGetPokemonsCreated = (pokemon) => {
     dispatch(getPokemonsCreated(pokemon));
     setInput(pokemon);
+    setCurrentPage(1);
   };
 
   const handlePokemonByAttack = (sortType) => {
     dispatch(orderPokemonByAttack(sortType));
     setInput(sortType);
+    setCurrentPage(1);
   };
 
+  const handlePages = (page) => {
+    setCurrentPage(page);
+  };
+
+  const { lastPokemon, firstPokemon } = pokemonIndex(currentPage, 12);
+
   return (
-    <div>
+    <div className={styles.background}>
       <div>
         <NavHome
           handleOrderByName={handleOrderByName}
@@ -51,7 +66,14 @@ const Home = () => {
         />
       </div>
       <div>
-        <PokemonCard />
+        <Pagination
+          pokemons={pokemons}
+          handlePages={handlePages}
+          currentPage={currentPage}
+        />
+      </div>
+      <div className={styles.pokemonCards}>
+        <PokemonCard firstPokemon={firstPokemon} lastPokemon={lastPokemon} />
       </div>
     </div>
   );

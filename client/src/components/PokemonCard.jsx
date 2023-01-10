@@ -1,22 +1,24 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Pokemon } from "./Pokemon";
+import styles from "../styles/PokemonCard.module.css"
 
-const PokemonCard = () => {
+const PokemonCard = ({ firstPokemon, lastPokemon }) => {
   const pokemons = useSelector((state) => state.pokemons);
 
   return (
-    <div>
+    <div className={styles.pokemonCardGlobal}>
       {Array.isArray(pokemons) === false ? (
-        <div>
+        <>
           <Pokemon key={pokemons.id} pokemons={pokemons} />
-        </div>
+        </>
       ) : (
-        pokemons?.map((pokemon) => {
+        // recorto el array de pokemons con el primero y el ultimo de paginado
+        pokemons?.slice(firstPokemon, lastPokemon).map((pokemon) => {
           return (
-            <div>
+            <>
               <Pokemon key={pokemon.id} pokemons={pokemon} />
-            </div>
+            </>
           );
         })
       )}

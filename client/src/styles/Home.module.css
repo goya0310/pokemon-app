@@ -1,0 +1,12 @@
+.background{
+    background: url("../images/home\ background.fw.png") no-repeat, radial-gradient(#F5FEDC, #E6FDA2);
+    background-size: 100%;
+}
+
+.pokemonCards{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ margin-top: 2vh; 
+ padding-bottom: 2vh;
+}

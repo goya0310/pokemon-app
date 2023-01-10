@@ -1,6 +1,6 @@
 const { Pokemon, Type } = require("../db");
 const axios = require("axios");
-const { normalizeApiRes } = require("./normalize");
+const { normalizeApiRes, normalizeDB } = require("./normalize");
 
 async function getPokemonById(req, res) {
   const { idPokemon } = req.params;
@@ -21,7 +21,8 @@ async function getPokemonById(req, res) {
     const findPokemonDB = await Pokemon.findByPk(idPokemon, {
       include: Type,
     });
-    return res.status(200).json(findPokemonDB);
+    // NORMALIZAAAAAAAAAAAR
+    return res.status(200).json(normalizeDB(findPokemonDB));
   } catch (error) {
     res.status(404).json("No se encuentra el id: " + error);
   }

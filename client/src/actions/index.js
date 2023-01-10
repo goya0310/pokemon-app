@@ -52,7 +52,6 @@ export function getPokemonById(id) {
       );
       dispatch({ type: GET_POKEMON_BY_ID, payload: pokemonById.data });
     } catch (error) {
-      alert("algo salió mal");
       console.log(error);
     }
   };
