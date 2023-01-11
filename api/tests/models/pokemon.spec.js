@@ -20,3 +20,12 @@ describe('Pokemon model', () => {
     });
   });
 });
+
+describe('Validators', () => {
+  beforeEach(() => Pokemon.sync({ force: true }));
+  describe('height', () => {
+    it('funciona cuando es un height valido', () => {
+      Pokemon.create({ height: 3 });
+    });
+  });
+});

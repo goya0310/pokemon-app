@@ -1,8 +1,6 @@
 // func p/normalizar response Api
 
 const normalizeApiRes = (apiRes) => {
-  
-
   const data = apiRes.data;
   // p/q la primera letra de type sea mayuscula, se hace un map al array porque tienen mas de un type
   const normalizedTypes = data.types?.map((e) => {
@@ -11,7 +9,7 @@ const normalizeApiRes = (apiRes) => {
   return {
     id: data.id,
     // p/q la primera letra de name sea mayuscula
-    name:  data.name.charAt(0).toUpperCase() + data.name.slice(1),
+    name: data.name.charAt(0).toUpperCase() + data.name.slice(1),
     hp: data.stats.find((e) => e.stat.name === "hp").base_stat,
     attack: data.stats.find((e) => e.stat.name === "attack").base_stat,
     defense: data.stats.find((e) => e.stat.name === "defense").base_stat,
@@ -46,8 +44,6 @@ const normalizeDB = (db) => {
     createInDb: db.createInDb,
   };
 };
-
-
 
 const normalizeTypes = (types) => {
   return types?.map((t) => {

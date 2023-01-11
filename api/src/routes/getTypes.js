@@ -22,7 +22,7 @@ const loadTypes = async () => {
 
   const typesNormalized = normalizeTypes(typesInDb);
   return typesNormalized;
-}
+};
 
 async function getTypes(req, res) {
   try {
@@ -33,4 +33,4 @@ async function getTypes(req, res) {
   }
 }
 
-module.exports = {getTypes, loadTypes};
+module.exports = { getTypes, loadTypes };

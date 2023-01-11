@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "../styles/Landing.module.css";
-import image from "../images/LandingPokemon.png";
 
 const Landing = () => {
   return (

@@ -43,6 +43,7 @@ module.exports = (sequelize) => {
     imgUrl: {
       type: DataTypes.STRING,
     },
+    // para poder filtrar por creados en base de datos
     createInDb: {
       type: DataTypes.BOOLEAN,
       allowNull: false,

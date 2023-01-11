@@ -3,6 +3,7 @@ import { connect, useSelector } from "react-redux";
 import { createPokemon, getTypes } from "../actions";
 import styles from "../styles/CreatePokemon.module.css";
 import pikachu from "../images/pikachu2.png";
+import pikachuExito from "../images/pikachuExito.png";
 
 // Falta que se resetee solo checkbox
 
@@ -85,11 +86,17 @@ export function Create(props) {
         };
       });
     }
+    if (!e.target.checked) {
+      input.types.splice(input.types.indexOf(e.target.value), 1);
+      setInput((state) => {
+        return { ...state };
+      });
+    }
   };
 
   const reloadPage = () => {
     alert("máximo types superado");
-    window.location.reload(false);
+    // window.location.reload(false);
   };
 
   return (
@@ -209,7 +216,6 @@ export function Create(props) {
             {input.types.length > 2 && reloadPage()}
             <br />
             <div className={styles.createReset}>
-              <input className={styles.reset} type={"reset"} value={"RESET"} />
               <input
                 className={styles.createButton}
                 type={"submit"}
@@ -218,12 +224,15 @@ export function Create(props) {
             </div>
           </form>
           <div>
-            {exito ? <h4>Pokemon Creado con Exito</h4> : null}
             {error ? <h4>Verificar datos</h4> : null}
           </div>
         </div>
         <div className={styles.pikachu}>
-          <img src={pikachu} alt="Pikachu" />
+          {exito ? (
+            <img src={pikachuExito} alt="PikachuExito" />
+          ) : (
+            <img src={pikachu} alt="Pikachu" />
+          )}
         </div>
       </div>
     </div>

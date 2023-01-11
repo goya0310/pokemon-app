@@ -13,6 +13,8 @@
 .ulGlobal li {
   display: flex;
   justify-content: center;
+  width: 3vw;
+  height: 3vh;
 }
 
 .button {
@@ -32,6 +34,11 @@
 }
 
 .button:hover {
+  background-color: #557821;
+  color: #ffde00;
+}
+
+.active{
   background-color: #557821;
   color: #ffde00;
 }

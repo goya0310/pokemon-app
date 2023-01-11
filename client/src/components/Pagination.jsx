@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../styles/Pagination.module.css"
+import styles from "../styles/Pagination.module.css";
 
 const Pagination = (props) => {
   const { pokemons, currentPage, handlePages } = props;
@@ -14,8 +14,9 @@ const Pagination = (props) => {
     <div className={styles.paginationGlobal}>
       {pages.length !== 0 && (
         <ul className={styles.ulGlobal}>
-          <li>
-            <button className={styles.button}
+          <li className={styles.actualPage}>
+            <button
+              className={styles.button}
               onClick={() => {
                 if (currentPage > 1) return handlePages(currentPage - 1);
               }}
@@ -26,7 +27,8 @@ const Pagination = (props) => {
           {pages?.map((number) => {
             return (
               <li key={number}>
-                <button className={styles.button}
+                <button
+                  className={`${styles.button} ${number === currentPage? styles.active: ""}`}
                   onClick={() => {
                     return handlePages(number);
                   }}
@@ -37,8 +39,8 @@ const Pagination = (props) => {
             );
           })}
           <li>
-            {" "}
-            <button className={styles.button}
+            <button
+              className={styles.button}
               onClick={() => {
                 if (currentPage < pages.length) handlePages(currentPage + 1);
               }}

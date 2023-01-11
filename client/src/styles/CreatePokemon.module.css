@@ -33,7 +33,7 @@
   border-style: solid;
   border-radius: 0.25rem;
   border-color: rgba(0, 0, 0, 0.7);
-  border-width: 1px;
+  border-width: 2px;
 }
 
 .pikachu {
@@ -128,14 +128,14 @@
   align-items: center;
 }
 
-.reset {
+/* .reset {
   background-color: #ed1c24;
   width: 9vw;
   margin-right: 2vw;
   padding: 0.25vw;
   border-style: solid;
   border-width: 2px;
-  border-radius: 0.5rem;
+  border-radius: 0.25rem;
   border-color: #060000e6;
   color: white;
   font-size: medium;
@@ -143,11 +143,11 @@
   text-shadow: none;
   font-family: "Lexend";
   margin-top: 1vh;
-}
+} */
 
 .createButton {
   background-color: #557821;
-  width: 9vw;
+  width: 20vw;
   padding: 0.25vw;
   border-style: solid;
   border-width: 2px;
@@ -163,12 +163,12 @@
 
 .createButton:hover{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  transform: rotate(360deg) scale(1.05);
+  transform: scale(1.05);
   transition-duration: 1s;
 }
 
-.reset:hover{
+/* .reset:hover{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  transform: rotate(360deg) scale(1.05) rotate(-20deg);
+  transform: scale(1.05);
   transition-duration: 1s;
-}
+} */

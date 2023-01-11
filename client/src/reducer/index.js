@@ -80,14 +80,14 @@ export default function rootReducer(state = initialState, action) {
       if (action.payload === "az") {
         return {
           ...state,
-          pokemons: state.filterPokemons?.sort((a, b) => {
+          pokemons: state.filterPokemons?.slice().sort((a, b) => {
             return a.attack - b.attack;
           }),
         };
       } else if (action.payload === "za") {
         return {
           ...state,
-          pokemons: state.filterPokemons?.sort((a, b) => {
+          pokemons: state.filterPokemons?.slice().sort((a, b) => {
             return b.attack - a.attack;
           }),
         };
@@ -103,7 +103,7 @@ export default function rootReducer(state = initialState, action) {
       if (action.payload === "az") {
         return {
           ...state,
-          pokemons: state.filterPokemons?.sort((a, b) => {
+          pokemons: state.filterPokemons?.slice().sort((a, b) => {
             if (a.name > b.name) {
               return 1;
             }
@@ -116,7 +116,7 @@ export default function rootReducer(state = initialState, action) {
       } else if (action.payload === "za") {
         return {
           ...state,
-          pokemons: state.filterPokemons?.sort((a, b) => {
+          pokemons: state.filterPokemons?.slice().sort((a, b) => {
             if (a.name > b.name) {
               return -1;
             }

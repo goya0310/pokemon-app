@@ -1,26 +1,25 @@
 .navHomeGlobal {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .navHomeGlobal li {
   list-style-type: none;
   display: inline-block;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 1vw;
+  margin-right: 1vw;
   text-decoration: none;
 }
 
 .listContainer {
   background-color: #ed1c23c7;
   padding-inline-start: 0px;
-  padding: 5px;
+  padding: .25vw;
   border-style: solid;
   border-width: 2px;
   border-radius: 0.5rem;
   border-color: #060000e6;
-  margin-bottom: 10px;
-  margin-top: 10px;
 }
 
 .listContainer:hover{
@@ -30,5 +29,5 @@
 .selectStyles {
   font-size: large;
   border-radius: 0.25rem;
-  padding: 2px;
+  padding: .15vw;
 }
