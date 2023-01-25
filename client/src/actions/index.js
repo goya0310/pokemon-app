@@ -9,6 +9,9 @@ export const GET_POKEMONS_CREATED = "GET_POKEMONS_CREATED";
 export const SEARCH_POKEMON = "SEARCH_POKEMON";
 export const ORDER_POKEMONS_BY_ATTACK = "ORDER_POKEMONS_BY_ATTACK";
 export const ORDER_POKEMONS_BY_NAME = "ORDER_POKEMONS_BY_NAME";
+export const LOADING_TRUE = "LOADING_TRUE";
+export const LOADING_FALSE = "LOADING_FALSE"
+
 
 export function createPokemon(pokemon) {
   return async (dispatch) => {
@@ -98,4 +101,16 @@ export function getPokemonsCreated(pokemon) {
     type: GET_POKEMONS_CREATED,
     payload: pokemon,
   };
+}
+
+export function setLoadingTrue (){
+  return{
+    type: LOADING_TRUE,
+  }
+}
+
+export function setLoadingFalse (){
+  return{
+    type: LOADING_FALSE,
+  }
 }

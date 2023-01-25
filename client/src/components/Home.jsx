@@ -7,15 +7,19 @@ import {
   getPokemonByType,
   getPokemonsCreated,
   orderPokemonByAttack,
+  setLoadingTrue,
 } from "../actions";
 import NavHome from "./NavHome";
 import Pagination, { pokemonIndex } from "./Pagination";
 import PokemonCard from "./PokemonCard";
-import styles from "../styles/Home.module.css"
+import styles from "../styles/Home.module.css";
+import spinner from "../images/spinner.gif";
+import loading from "../images/loading.gif";
 
 const Home = () => {
   const [input, setInput] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
+  const spinnerLoader = useSelector((state) => state.loadingSpinner);
 
   const pokemons = useSelector((state) => state.pokemons);
   const dispatch = useDispatch();
@@ -23,6 +27,7 @@ const Home = () => {
   useEffect(() => {
     dispatch(getTypes());
     dispatch(getPokemons());
+    dispatch(setLoadingTrue());
   }, [dispatch]);
 
   const handleOrderByName = (sortType) => {
@@ -66,15 +71,24 @@ const Home = () => {
         />
       </div>
       <div>
-        <Pagination
-          pokemons={pokemons}
-          handlePages={handlePages}
-          currentPage={currentPage}
-        />
+        {!spinnerLoader ? (
+          <Pagination
+            pokemons={pokemons}
+            handlePages={handlePages}
+            currentPage={currentPage}
+          />
+        ) : null}
       </div>
-      <div className={styles.pokemonCards}>
-        <PokemonCard firstPokemon={firstPokemon} lastPokemon={lastPokemon} />
-      </div>
+      {spinnerLoader ? (
+        <div className={styles.spinnerloader}>
+          <img src={spinner} alt="...spinner" />
+          <img src={loading} alt="...loading" className={styles.loading} />
+        </div>
+      ) : (
+        <div className={styles.pokemonCards}>
+          <PokemonCard firstPokemon={firstPokemon} lastPokemon={lastPokemon} />
+        </div>
+      )}
     </div>
   );
 };

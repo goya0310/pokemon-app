@@ -229,7 +229,7 @@ export function Create(props) {
         </div>
         <div className={styles.pikachu}>
           {exito ? (
-            <img src={pikachuExito} alt="PikachuExito" />
+            <img src={pikachuExito} alt="PikachuExito" className={styles.pikachuExito} />
           ) : (
             <img src={pikachu} alt="Pikachu" />
           )}

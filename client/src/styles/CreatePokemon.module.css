@@ -75,12 +75,12 @@
   text-shadow: none;
 }
 
-.form > input{
+.form > input {
   border-style: solid;
   border-width: 2px;
   border-radius: 0.5rem;
   border-color: #060000e6;
-  padding-left: .25vw;
+  padding-left: 0.25vw;
 }
 .typesCheck {
   color: rgb(50, 50, 50);
@@ -95,7 +95,7 @@
   align-items: center;
 }
 
-.typesBoxes{
+.typesBoxes {
   padding-left: 1vw;
   padding-right: 1vw;
 }
@@ -112,9 +112,8 @@
   align-items: center;
 }
 
-.type:hover{
+.type:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
 }
 
 .type > label {
@@ -122,7 +121,7 @@
   padding-left: 5%;
 }
 
-.createReset{
+.createReset {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -161,7 +160,7 @@
   margin-top: 1vh;
 }
 
-.createButton:hover{
+.createButton:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   transform: scale(1.05);
   transition-duration: 1s;
@@ -172,3 +171,16 @@
   transform: scale(1.05);
   transition-duration: 1s;
 } */
+
+.pikachuExito {
+  animation: fadein 1s;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

@@ -4,6 +4,7 @@ const initialState = {
   allPokemons:[],
   filterPokemons: [],
   types: [],
+  loadingSpinner: true,
 };
 
 export default function rootReducer(state = initialState, action) {
@@ -24,16 +25,19 @@ export default function rootReducer(state = initialState, action) {
         pokemons: action.payload,
         filterPokemons: action.payload,
         allPokemons: action.payload,
+        loadingSpinner: false,
       };
     case "SEARCH_POKEMON":
       return {
         ...state,
         pokemons: action.payload,
+        loadingSpinner: false,
       };
     case "GET_POKEMON_BY_ID":
       return {
         ...state,
         pokemon: action.payload,
+        loadingSpinner: false,
       };
     case "GET_POKEMONS_BY_TYPE": {
       if (action.payload === "xdefecto") {
@@ -131,6 +135,18 @@ export default function rootReducer(state = initialState, action) {
           ...state,
           pokemons: state.filterPokemons,
         };
+      }
+    }
+    case "LOADING_TRUE":{
+      return{
+        ...state,
+        loadingSpinner: true,
+      }
+    }
+    case "LOADING_FALSE":{
+      return{
+        ...state,
+        loadingSpinner: false,
       }
     }
     default:

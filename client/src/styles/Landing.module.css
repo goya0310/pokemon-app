@@ -11,9 +11,9 @@
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  width: 70vw;
+  width: 50vw;
 }
 
 .image:hover {
-  transform: scale(1.05);
+  filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.2));
 }

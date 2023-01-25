@@ -1,12 +1,58 @@
-.background{
-    background: url("../images/home\ background.fw.png") no-repeat, radial-gradient(#F5FEDC, #E6FDA2);
-    background-size: 100%;
+.background {
+  background: url("../images/home\ background.fw.png") fixed no-repeat,
+    radial-gradient(#f5fedc, #e6fda2);
+  background-size: cover;
+  margin-bottom: 0vh;
 }
 
-.pokemonCards{
- display: flex;
- justify-content: center;
- align-items: center;
- margin-top: 2vh; 
- padding-bottom: 2vh;
+.pokemonCards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2vh;
+  padding-bottom: 2vh;
 }
+
+.spinnerloader {
+  display: flex;
+  flex-direction: column;
+  width: 40vw;
+  height: 100vh;
+  margin-left: 30vw;
+  margin-bottom: 30vh;
+}
+
+.loading {
+  padding-left: 9vw;
+  padding-right: 8vw;
+  animation: fadeIn ease 10s;
+  -webkit-animation: fadeIn ease 10s;
+  -moz-animation: fadeIn ease 10s;
+  -o-animation: fadeIn ease 10s;
+  -ms-animation: fadeIn ease 10s;
+}
+
+@keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  @-moz-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  @-webkit-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  @-o-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  @-ms-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
