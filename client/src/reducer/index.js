@@ -1,3 +1,6 @@
+import Swal from "sweetalert2";
+import pikachuError from "../images/pikachuError.jpg";
+
 const initialState = {
   pokemons: [], // con datos solo que se van a filtrar
   pokemon: {}, // detalle de un pokemon
@@ -6,6 +9,17 @@ const initialState = {
   types: [],
   loadingSpinner: true,
 };
+
+
+let errorAlert = (message) => {
+  Swal.fire({
+    imageUrl: pikachuError,
+    imageHeight: 200,
+    title: "¡Error!",
+    text: message,
+    confirmButtonText: "OK",
+  })
+}
 
 export default function rootReducer(state = initialState, action) {
   switch (action.type) {
@@ -53,7 +67,7 @@ export default function rootReducer(state = initialState, action) {
           return p.types.includes(action.payload);
         });
         if (pokemonsByType.length === 0) {
-          alert("No hay Pokemons de este Type");
+          errorAlert("No hay Pokemons de este Type");
           return {
             ...state,
           };
@@ -71,7 +85,7 @@ export default function rootReducer(state = initialState, action) {
           return p.createInDb === true;
         });
         if (pokemonsInDb.length === 0) {
-          alert("No hay Pokemons creados en BD");
+          errorAlert("No hay Pokemons creados por Usuarios");
           return{
             ...state
           }

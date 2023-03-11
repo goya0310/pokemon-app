@@ -7,6 +7,9 @@ import pikachuExito from "../images/pikachuExito.png";
 import { setLoadingTrue } from "../actions";
 import spinner from "../images/spinner.gif";
 import loading from "../images/loading.gif";
+import Swal from "sweetalert2";
+import { useHistory } from "react-router-dom";
+import pikachuError from "../images/pikachuError.jpg";
 
 // Falta que se resetee solo checkbox
 
@@ -26,6 +29,7 @@ export function Create(props) {
 
   const types = useSelector((state) => state.types);
   let spinnerLoader = useSelector((state) => state.loadingSpinner);
+  const history = useHistory();
 
   React.useEffect(() => {
     props.getAllTypes();
@@ -46,13 +50,23 @@ export function Create(props) {
   };
   // let dispatch = React.useDispatch() //en vez de usar connect
 
+  let errorAlert = (message) => {
+    Swal.fire({
+      imageUrl: pikachuError,
+      imageHeight: 200,
+      title: "¡Error!",
+      text: message,
+      confirmButtonText: "OK",
+    })
+  }
+
   let handleSubmit = (e) => {
     //para que no recargue la pagina
     e.preventDefault();
     console.log(e);
     if (input.name && input.types.length < 3) {
       if (input.imgUrl.length > 0 && checkURL(input.imgUrl) === false) {
-        alert("la url ingresada no corresponde a una imagen");
+        errorAlert("La URL ingresada no corresponde a una imagen");
         return;
       }
       if (input.imgUrl.length === 0) {
@@ -101,8 +115,7 @@ export function Create(props) {
   };
 
   const reloadPage = () => {
-    alert("máximo types superado");
-    // window.location.reload(false);
+    errorAlert("máximo types superado");
   };
 
   return (

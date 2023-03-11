@@ -1,4 +1,7 @@
 import axios from "axios";
+import Swal from "sweetalert2";
+import pikachuError from "../images/pikachuError.jpg";
+
 
 export const CREATE_POKEMON = "CREATE_POKEMON";
 export const GET_TYPES = "GET_TYPES";
@@ -12,6 +15,16 @@ export const ORDER_POKEMONS_BY_NAME = "ORDER_POKEMONS_BY_NAME";
 export const LOADING_TRUE = "LOADING_TRUE";
 export const LOADING_FALSE = "LOADING_FALSE"
 
+let errorAlert = (message) => {
+  Swal.fire({
+    imageUrl: pikachuError,
+    imageHeight: 200,
+    title: "¡Error!",
+    text: message,
+    confirmButtonText: "OK",
+  })
+}
+
 
 export function createPokemon(pokemon) {
   return async (dispatch) => {
@@ -19,7 +32,7 @@ export function createPokemon(pokemon) {
       await axios.post("http://localhost:3001/pokemons/", pokemon);
       dispatch({ type: CREATE_POKEMON, payload: pokemon });
     } catch (error) {
-      alert("pokemon no creado, intenta con otro nombre");
+      errorAlert("Pokemon no creado, intenta con otro nombre");
     }
   };
 }
@@ -30,7 +43,7 @@ export function getTypes() {
       const allTypes = await axios.get("http://localhost:3001/types");
       dispatch({ type: GET_TYPES, payload: allTypes.data });
     } catch (error) {
-      alert("algo salió mal");
+      errorAlert("Algo salió mal");
     }
   };
 }
@@ -41,7 +54,7 @@ export function getPokemons() {
       const allPokemons = await axios.get("http://localhost:3001/pokemons");
       dispatch({ type: GET_POKEMONS, payload: allPokemons.data });
     } catch (error) {
-      alert("algo salió mal");
+      errorAlert("Algo salió mal");
       console.log(error);
     }
   };
@@ -69,7 +82,7 @@ export function searchPokemon(name) {
       dispatch({ type: SEARCH_POKEMON, payload: findPokemon.data });
     } catch (error) {
       console.log(error);
-      alert("No se encontraron resultados para tu búsqueda");
+      errorAlert("No se encontraron resultados para tu búsqueda");
       return;
     }
   };
