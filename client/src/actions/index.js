@@ -29,7 +29,7 @@ let errorAlert = (message) => {
 export function createPokemon(pokemon) {
   return async (dispatch) => {
     try {
-      await axios.post("http://localhost:3001/pokemons/", pokemon);
+      await axios.post("/pokemons/", pokemon);
       dispatch({ type: CREATE_POKEMON, payload: pokemon });
     } catch (error) {
       errorAlert("Pokemon no creado, intenta con otro nombre");
@@ -40,7 +40,7 @@ export function createPokemon(pokemon) {
 export function getTypes() {
   return async (dispatch) => {
     try {
-      const allTypes = await axios.get("http://localhost:3001/types");
+      const allTypes = await axios.get("/types");
       dispatch({ type: GET_TYPES, payload: allTypes.data });
     } catch (error) {
       errorAlert("Algo salió mal");
@@ -51,7 +51,7 @@ export function getTypes() {
 export function getPokemons() {
   return async (dispatch) => {
     try {
-      const allPokemons = await axios.get("http://localhost:3001/pokemons");
+      const allPokemons = await axios.get("/pokemons");
       dispatch({ type: GET_POKEMONS, payload: allPokemons.data });
     } catch (error) {
       errorAlert("Algo salió mal");
@@ -64,7 +64,7 @@ export function getPokemonById(id) {
   return async (dispatch) => {
     try {
       const pokemonById = await axios.get(
-        `http://localhost:3001/pokemons/${id}`
+        `/pokemons/${id}`
       );
       dispatch({ type: GET_POKEMON_BY_ID, payload: pokemonById.data });
     } catch (error) {
@@ -77,7 +77,7 @@ export function searchPokemon(name) {
   return async (dispatch) => {
     try {
       const findPokemon = await axios.get(
-        `http://localhost:3001/pokemons?name=${name}`
+        `/pokemons?name=${name}`
       );
       dispatch({ type: SEARCH_POKEMON, payload: findPokemon.data });
     } catch (error) {
