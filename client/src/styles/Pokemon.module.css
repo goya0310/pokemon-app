@@ -24,7 +24,7 @@
     "image image image"
     "image image image"
     "link link link";
-  background: radial-gradient(#ffd5aa, #ff7f00) center;
+  background: radial-gradient(var(--color-orange-light), var(--color-orange)) center;
   padding: 10px;
   border-style: solid;
   border-width: 2px;
@@ -97,7 +97,7 @@
 .button {
   width: 20vw;
   height: 5vh;
-  background-color: #729f2d;
+  background-color: var(--color-green-light);
   color: white;
   transition-duration: 0.4s;
   font-size: large;
@@ -109,6 +109,6 @@
 }
 
 .button:hover {
-  background-color: #557821;
-  color: #ffde00;
+  background-color: var(--color-green);
+  color: var(--color-yellow);
 }

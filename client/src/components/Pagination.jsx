@@ -4,7 +4,7 @@ import styles from "../styles/Pagination.module.css";
 const Pagination = (props) => {
   const { pokemons, currentPage, handlePages } = props;
 
-  const totalPages = Math.ceil(pokemons.length / 12); //12 pokemons por pagina
+  const totalPages = Math.ceil(pokemons.length / 8); //8 pokemons por pagina
   const pages = [];
   for (let i = 1; i <= totalPages; i++) {
     pages.push(i);

@@ -1,16 +1,16 @@
 .navBarGlobal {
   display: flex;
-  justify-content: center;
-  background-color: #3a57a2eb;
+  background-color: #3a57a2;
   border-bottom: 2px solid black;
 }
 
-.navBarGlobal:hover{
-  background-color: #3a57a2;
+.navBarContainer{
+  display: flex;
+  justify-content: center;
+  min-width: 93%;
 }
-
 .ul {
-  padding-left: 10px;
+  padding-left: 100px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
@@ -32,4 +32,22 @@
 
 .text:hover {
   color: #ffde00;
+}
+
+.linksContainer{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 7%;
+}
+
+.linksContainer > a > img {
+  display: flex;
+  width: 1.8rem;
+  height: 1.8rem;
+  padding-left: 5px;
+}
+
+.linksContainer > a > img:hover {
+  filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.2))
 }

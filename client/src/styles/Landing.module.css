@@ -2,18 +2,19 @@
   display: flex;
   justify-content: center;
   background: radial-gradient(#f5fedc, #e6fda2) center;
-  width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .image {
-  background-image: url("../images/LandingPokemon.png");
+  background-image: url("../images/LandingPokemonOpen.png");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   width: 50vw;
+  transition: all 0.2s ease-out;
 }
 
 .image:hover {
+  background-image: url("../images/LandingPokemon.png");
   filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.2));
 }

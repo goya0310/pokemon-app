@@ -69,8 +69,8 @@ export function searchPokemon(name) {
       dispatch({ type: SEARCH_POKEMON, payload: findPokemon.data });
     } catch (error) {
       console.log(error);
-      alert("algo salio mal");
-      console.log(error);
+      alert("No se encontraron resultados para tu búsqueda");
+      return;
     }
   };
 }

@@ -1,17 +1,18 @@
 .background {
   background: url("../images/Create\ background.final.fw.png") fixed no-repeat;
   background-size: cover;
-  padding-top: 5vh;
-  padding-bottom: 5vh;
+  padding-top: 2vh;
+  min-height: 100svh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .createGlobal {
   display: flex;
-  justify-content: center;
-  align-items: center;
   background: radial-gradient(#cae9f4, #30a7d7);
-  width: 60vw;
-  margin-left: 20vw;
+  min-width: 75%;
+  min-height:35rem;
   border-style: solid;
   border-width: 2px;
   border-radius: 0.5rem;
@@ -21,50 +22,58 @@
 
 .header {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  max-height: 3rem;
   color: rgb(50, 50, 50);
   text-decoration: none;
   font-size: x-large;
   font-weight: 700;
   text-shadow: none;
-  background: radial-gradient(#fff3a2, #ffde00);
-  width: 20vw;
+  background-color: var(--color-yellow);
   border-style: solid;
   border-radius: 0.25rem;
   border-color: rgba(0, 0, 0, 0.7);
   border-width: 2px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin-bottom: 2rem;
+
+
 }
 
 .pikachu {
-  width: 25vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-left: 4vw;
-  padding-right: 1vw;
-  padding-top: 5vh;
+  padding-left: 5%;
+  padding-right: 2%;
+  margin-top: 5%;
 }
 
 .pikachu > img {
-  width: 25vw;
+  width: 22svw;
 }
 
 .create {
-  background-color: #8fc93a;
-  width: 30vw;
+  background-color: var(--color-green-extralight);
+  min-width: 60%;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   flex-direction: column;
-  margin: 2.5vw;
-  padding-bottom: 2.5vw;
+  margin: 2%;
+  padding-bottom: 2%;
+  padding-top: 2%;
   border-style: solid;
   border-width: 2px;
   border-radius: 0.5rem;
   border-color: #060000e6;
 }
 
+.formGlobal {
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 5%;
+  /* width: 50%; */
+}
 .form {
   display: flex;
   justify-content: space-between;
@@ -81,6 +90,8 @@
   border-radius: 0.5rem;
   border-color: #060000e6;
   padding-left: 0.25vw;
+  max-height: 3svh;
+  max-width: 70%;
 }
 .typesCheck {
   color: rgb(50, 50, 50);
@@ -127,26 +138,9 @@
   align-items: center;
 }
 
-/* .reset {
-  background-color: #ed1c24;
-  width: 9vw;
-  margin-right: 2vw;
-  padding: 0.25vw;
-  border-style: solid;
-  border-width: 2px;
-  border-radius: 0.25rem;
-  border-color: #060000e6;
-  color: white;
-  font-size: medium;
-  font-weight: 700;
-  text-shadow: none;
-  font-family: "Lexend";
-  margin-top: 1vh;
-} */
-
 .createButton {
   background-color: #557821;
-  width: 20vw;
+  min-width: 30rem;
   padding: 0.25vw;
   border-style: solid;
   border-width: 2px;
@@ -184,3 +178,68 @@
     opacity: 1;
   }
 }
+
+.spinnerloader {
+  display: flex;
+  flex-direction: column;
+  width: 40vw;
+  height: 100vh;
+  /* margin-left: 30vw; */
+  margin-bottom: 30vh;
+}
+
+.loading {
+  padding-left: 9vw;
+  padding-right: 8vw;
+  animation: fadeIn ease 10s;
+  -webkit-animation: fadeIn ease 10s;
+  -moz-animation: fadeIn ease 10s;
+  -o-animation: fadeIn ease 10s;
+  -ms-animation: fadeIn ease 10s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+

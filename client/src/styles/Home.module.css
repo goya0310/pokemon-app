@@ -2,7 +2,7 @@
   background: url("../images/home\ background.fw.png") fixed no-repeat,
     radial-gradient(#f5fedc, #e6fda2);
   background-size: cover;
-  margin-bottom: 0vh;
+  min-height: 100svh;
 }
 
 .pokemonCards {
@@ -16,10 +16,11 @@
 .spinnerloader {
   display: flex;
   flex-direction: column;
-  width: 40vw;
-  height: 100vh;
-  margin-left: 30vw;
-  margin-bottom: 30vh;
+  width: 40%; 
+  max-width: 600px; 
+  height: auto; 
+  margin: 0 auto;
+  padding-bottom: 15%;
 }
 
 .loading {

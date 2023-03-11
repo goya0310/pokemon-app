@@ -58,7 +58,7 @@ const Home = () => {
     setCurrentPage(page);
   };
 
-  const { lastPokemon, firstPokemon } = pokemonIndex(currentPage, 12);
+  const { lastPokemon, firstPokemon } = pokemonIndex(currentPage, 8);
 
   return (
     <div className={styles.background}>

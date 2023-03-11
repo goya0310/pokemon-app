@@ -4,6 +4,9 @@ import { createPokemon, getTypes } from "../actions";
 import styles from "../styles/CreatePokemon.module.css";
 import pikachu from "../images/pikachu2.png";
 import pikachuExito from "../images/pikachuExito.png";
+import { setLoadingTrue } from "../actions";
+import spinner from "../images/spinner.gif";
+import loading from "../images/loading.gif";
 
 // Falta que se resetee solo checkbox
 
@@ -22,8 +25,11 @@ export function Create(props) {
   });
 
   const types = useSelector((state) => state.types);
+  let spinnerLoader = useSelector((state) => state.loadingSpinner);
+
   React.useEffect(() => {
     props.getAllTypes();
+    props.setLoadingTrue();
   }, [props]);
 
   let [exito, setExito] = React.useState(false);
@@ -101,140 +107,185 @@ export function Create(props) {
 
   return (
     <div className={styles.background}>
-      <div className={styles.createGlobal}>
-        <div className={styles.create}>
-          <h2 className={styles.header}>Crea tu Pokemon</h2>
-          <form className={styles.formGlobal} onSubmit={(e) => handleSubmit(e)}>
-            <div className={styles.form}>
-              <label>Name: </label>
-              <input
-                type={"text"}
-                name={"name"}
-                value={input.name}
-                required
-                onChange={(e) => handleChange(e)}
-              />
+      {spinnerLoader ? (
+        <div className={styles.spinnerloader}>
+          <img src={spinner} alt="...spinner" />
+          <img src={loading} alt="...loading" className={styles.loading} />
+        </div>
+      ) : (
+        <div className={styles.createGlobal}>
+          <div className={styles.create}>
+            <div className={styles.header}>
+              <h3>Crea tu Pokemon</h3>
             </div>
-            <div className={styles.form}>
-              <label>HP: </label>
-              <input
-                type={"text"}
-                name={"hp"}
-                value={input.hp}
-                onChange={(e) => handleChange(e)}
-              />
-            </div>
-            <div className={styles.form}>
-              <label>Attack: </label>
-              <input
-                type={"text"}
-                name={"attack"}
-                value={input.attack}
-                onChange={(e) => handleChange(e)}
-              />
-            </div>
-            <div className={styles.form}>
-              <label>Defense: </label>
-              <input
-                type={"text"}
-                name={"defense"}
-                value={input.defense}
-                onChange={(e) => handleChange(e)}
-              />
-            </div>
-            <div className={styles.form}>
-              <label>Speed: </label>
-              <input
-                type={"text"}
-                name={"speed"}
-                value={input.speed}
-                onChange={(e) => handleChange(e)}
-              />
-            </div>
-            <div className={styles.form}>
-              <label>Height: </label>
-              <input
-                type={"text"}
-                name={"height"}
-                value={input.height}
-                onChange={(e) => handleChange(e)}
-              />
-            </div>
-            <div className={styles.form}>
-              <label>Weight: </label>
-              <input
-                type={"text"}
-                name={"weight"}
-                value={input.weight}
-                onChange={(e) => handleChange(e)}
-              />
-            </div>
-            <div className={styles.form}>
-              <label>Image Link: </label>
-              <input
-                type={"text"}
-                name={"imgUrl"}
-                value={input.imgUrl}
-                onChange={(e) => handleChange(e)}
-              />
-            </div>
-            <p className={styles.typesCheck}>Elegir máximo 2 types</p>
-            <div className={styles.typeContainer}>
-              <div className={styles.typesBoxes}>
-                {types?.slice(0, 10).map((type) => {
-                  return (
-                    <div key={type.id} className={styles.type}>
-                      <input
-                        type={"checkbox"}
-                        id={"checkId"}
-                        name={"types"}
-                        value={type.name}
-                        onChange={(e) => handleCheckbox(e)}
-                      />
-                      <label>{type.name}</label>
-                    </div>
-                  );
-                })}
+            <form onSubmit={(e) => handleSubmit(e)}>
+              <div className={styles.formGlobal}>
+                <div className={styles.form}>
+                  <label>Name: </label>
+                  <input
+                    type={"text"}
+                    name={"name"}
+                    value={input.name}
+                    required
+                    onChange={(e) => handleChange(e)}
+                  />
+                </div>
+                <div className={styles.form}>
+                  <label>HP: </label>
+                  <input
+                    type={"text"}
+                    name={"hp"}
+                    value={input.hp}
+                    onChange={(e) => handleChange(e)}
+                  />
+                </div>
+                <div className={styles.form}>
+                  <label>Attack: </label>
+                  <input
+                    type={"text"}
+                    name={"attack"}
+                    value={input.attack}
+                    onChange={(e) => handleChange(e)}
+                  />
+                </div>
+                <div className={styles.form}>
+                  <label>Defense: </label>
+                  <input
+                    type={"text"}
+                    name={"defense"}
+                    value={input.defense}
+                    onChange={(e) => handleChange(e)}
+                  />
+                </div>
+                <div className={styles.form}>
+                  <label>Speed: </label>
+                  <input
+                    type={"text"}
+                    name={"speed"}
+                    value={input.speed}
+                    onChange={(e) => handleChange(e)}
+                  />
+                </div>
+                <div className={styles.form}>
+                  <label>Height: </label>
+                  <input
+                    type={"text"}
+                    name={"height"}
+                    value={input.height}
+                    onChange={(e) => handleChange(e)}
+                  />
+                </div>
+                <div className={styles.form}>
+                  <label>Weight: </label>
+                  <input
+                    type={"text"}
+                    name={"weight"}
+                    value={input.weight}
+                    onChange={(e) => handleChange(e)}
+                  />
+                </div>
+                <div className={styles.form}>
+                  <label>Image Link: </label>
+                  <input
+                    type={"text"}
+                    name={"imgUrl"}
+                    value={input.imgUrl}
+                    onChange={(e) => handleChange(e)}
+                  />
+                </div>
               </div>
-              <div className={styles.typesBoxes}>
-                {types?.slice(10).map((type) => {
-                  return (
-                    <div key={type.id} className={styles.type}>
-                      <input
-                        type={"checkbox"}
-                        id={"checkId"}
-                        name={"types"}
-                        value={type.name}
-                        onChange={(e) => handleCheckbox(e)}
-                      />
-                      <label>{type.name}</label>
-                    </div>
-                  );
-                })}
+              <p className={styles.typesCheck}>Elegir máximo 2 types</p>
+              <div className={styles.typeContainer}>
+                <div className={styles.typesBoxes}>
+                  {types?.slice(0, 5).map((type) => {
+                    return (
+                      <div key={type.id} className={styles.type}>
+                        <input
+                          type={"checkbox"}
+                          id={"checkId"}
+                          name={"types"}
+                          value={type.name}
+                          onChange={(e) => handleCheckbox(e)}
+                        />
+                        <label>{type.name}</label>
+                      </div>
+                    );
+                  })}
+                </div>
+                <div className={styles.typesBoxes}>
+                  {types?.slice(5, 10).map((type) => {
+                    return (
+                      <div key={type.id} className={styles.type}>
+                        <input
+                          type={"checkbox"}
+                          id={"checkId"}
+                          name={"types"}
+                          value={type.name}
+                          onChange={(e) => handleCheckbox(e)}
+                        />
+                        <label>{type.name}</label>
+                      </div>
+                    );
+                  })}
+                </div>
+                <div className={styles.typesBoxes}>
+                  {types?.slice(10, 15).map((type) => {
+                    return (
+                      <div key={type.id} className={styles.type}>
+                        <input
+                          type={"checkbox"}
+                          id={"checkId"}
+                          name={"types"}
+                          value={type.name}
+                          onChange={(e) => handleCheckbox(e)}
+                        />
+                        <label>{type.name}</label>
+                      </div>
+                    );
+                  })}
+                </div>
+                <div className={styles.typesBoxes}>
+                  {types?.slice(15, 20).map((type) => {
+                    return (
+                      <div key={type.id} className={styles.type}>
+                        <input
+                          type={"checkbox"}
+                          id={"checkId"}
+                          name={"types"}
+                          value={type.name}
+                          onChange={(e) => handleCheckbox(e)}
+                        />
+                        <label>{type.name}</label>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
-            </div>
-            {input.types.length > 2 && reloadPage()}
-            <br />
-            <div className={styles.createReset}>
-              <input
-                className={styles.createButton}
-                type={"submit"}
-                value={"CREATE"}
+              {input.types.length > 2 && reloadPage()}
+              <br />
+              <div className={styles.createReset}>
+                <input
+                  className={styles.createButton}
+                  type={"submit"}
+                  value={"CREATE"}
+                />
+              </div>
+            </form>
+            <div>{error ? <h4>Verificar datos</h4> : null}</div>
+          </div>
+          <div className={styles.pikachu}>
+            {exito ? (
+              <img
+                src={pikachuExito}
+                alt="PikachuExito"
+                className={styles.pikachuExito}
               />
-            </div>
-          </form>
-          <div>
-            {error ? <h4>Verificar datos</h4> : null}
+            ) : (
+              <img src={pikachu} alt="Pikachu" />
+            )}
           </div>
         </div>
-        <div className={styles.pikachu}>
-          {exito ? (
-            <img src={pikachuExito} alt="PikachuExito" className={styles.pikachuExito} />
-          ) : (
-            <img src={pikachu} alt="Pikachu" />
-          )}
-        </div>
-      </div>
+      )}
     </div>
   );
 }
@@ -243,6 +294,7 @@ function mapDispatchToProps(dispatch) {
   return {
     createPokemon: (input) => dispatch(createPokemon(input)),
     getAllTypes: () => dispatch(getTypes()),
+    setLoadingTrue: () => dispatch(setLoadingTrue()),
   };
 }
 

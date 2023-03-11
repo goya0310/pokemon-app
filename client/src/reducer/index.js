@@ -1,7 +1,7 @@
 const initialState = {
   pokemons: [], // con datos solo que se van a filtrar
   pokemon: {}, // detalle de un pokemon
-  allPokemons:[],
+  allPokemons: [],
   filterPokemons: [],
   types: [],
   loadingSpinner: true,
@@ -18,6 +18,8 @@ export default function rootReducer(state = initialState, action) {
       return {
         ...state,
         types: action.payload,
+        loadingSpinner: false,
+
       };
     case "GET_POKEMONS":
       return {
@@ -50,6 +52,12 @@ export default function rootReducer(state = initialState, action) {
         let pokemonsByType = state.allPokemons?.filter((p) => {
           return p.types.includes(action.payload);
         });
+        if (pokemonsByType.length === 0) {
+          alert("No hay Pokemons de este Type");
+          return {
+            ...state,
+          };
+        }
         return {
           ...state,
           pokemons: pokemonsByType,
@@ -59,11 +67,18 @@ export default function rootReducer(state = initialState, action) {
     }
     case "GET_POKEMONS_CREATED": {
       if (action.payload === "db") {
+        let pokemonsInDb = state.filterPokemons?.filter((p) => {
+          return p.createInDb === true;
+        });
+        if (pokemonsInDb.length === 0) {
+          alert("No hay Pokemons creados en BD");
+          return{
+            ...state
+          }
+        }
         return {
           ...state,
-          pokemons: state.filterPokemons?.filter((p) => {
-            return p.createInDb === true;
-          }),
+          pokemons: pokemonsInDb,
         };
       } else if (action.payload === "api") {
         return {
@@ -137,17 +152,17 @@ export default function rootReducer(state = initialState, action) {
         };
       }
     }
-    case "LOADING_TRUE":{
-      return{
+    case "LOADING_TRUE": {
+      return {
         ...state,
         loadingSpinner: true,
-      }
+      };
     }
-    case "LOADING_FALSE":{
-      return{
+    case "LOADING_FALSE": {
+      return {
         ...state,
         loadingSpinner: false,
-      }
+      };
     }
     default:
       return { ...state };
